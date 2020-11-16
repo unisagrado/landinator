@@ -6,7 +6,7 @@ class SubscriptionForm(forms.Form):
     last_name = forms.CharField(label='Sobrenome*')
     email = forms.EmailField(label='E-mail*')
     celphone = forms.CharField(label='Celular*')
-    phone = forms.CharField(label='Telefone')
+    phone = forms.CharField(label='Telefone', required=False)
     accept = forms.BooleanField()
 
     first_name.widget.attrs.update({'placeholder': first_name.label})

@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import landinator.core.views
+from landinator.core.views import home, success
 
 urlpatterns = [
-    path('', landinator.core.views.home),
+    path('<slug:slug>', home, name='home'),
+    path('sucesso/', success, name='success'),
     path('admin/', admin.site.urls),
 ]
