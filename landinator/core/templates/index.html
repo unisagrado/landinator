@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"></link>
+
+</head>
+<body>
+    <main class="container">
+        <h1>Aulão do Enem</h1>
+
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Inscreva-se</h1>
+                </div>
+                <div class="card-body">
+                    <form action="." novalidate method="POST">
+                        {% csrf_token %}
+                        <div class="form-row form-control">
+                            {{ form.first_name }}
+                            {{ form.first_name.errors }}
+                        </div>
+                        <div class="form-row form-control">
+                            {{ form.last_name }}
+                            {{ form.last_name.errors }}
+                        </div>
+                        <div class="form-row form-control">
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="form-row form-control">
+                            {{ form.celphone }}
+                            {{ form.celphone.errors }}
+                        </div>
+                        <div class="form-row form-control">
+                            {{ form.phone }}
+                            {{ form.phone.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.accept }}
+                            <span>
+                                Ao se cadastrar neste formulário, você concorda com a nossa 
+                                <a href="https://unisagrado.edu.br/politica-de-privacidade">política de privacidade</a>
+                            </span>
+                            {{ form.accept.errors }}
+                        </div>
+                        <button type="submit">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

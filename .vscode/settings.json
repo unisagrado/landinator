@@ -1,0 +1,41 @@
+{
+  "explorer.compactFolders": false,
+  "workbench.colorTheme": "Darcula Pycharm with Dark GUI",
+  "workbench.iconTheme": "material-icon-theme",
+  "breadcrumbs.enabled": true,
+  "window.zoomLevel": 0,
+  "editor.fontLigatures": false,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    100,
+    120
+  ],
+  "editor.renderLineHighlight": "gutter",
+  "editor.tabSize": 4,
+  "editor.parameterHints.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "git.ignoreMissingGitWarning": true,
+  "editor.suggestSelection": "first",
+  "remote.extensionKind": {
+    "ms-azuretools.vscode-docker": "workspace"
+  },
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "python.pythonPath": ".venv/bin/python",
+  "python.autoComplete.extraPaths": [
+    "${env:VIRTUAL_ENV}/lib/**/site-packages"
+  ],
+  "python.languageServer": "Pylance",
+  "python.analysis.extraPaths": [
+    "${env:VIRTUAL_ENV}/lib/**/site-packages"
+  ]
+}

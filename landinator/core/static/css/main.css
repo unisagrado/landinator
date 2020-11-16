@@ -1,0 +1,135 @@
+:root {
+    --color-primary: rgb(174, 20, 15);
+    --color-secondary: rgb(42,43,47);
+    --color-secondary-light: rgba(85,85,85, 0.8);
+
+    font-size: 60%;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: url('../img/background.png');
+    background-size: cover;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    flex: 1;
+    align-items: center;
+}
+
+.container h1 {
+    color: #fff;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    margin: 2.4rem auto;
+}
+
+
+.content {
+    padding: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.card .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background-color: #fff;
+    padding: 1.6rem;
+}
+
+.card .card-header .card-title {
+    color: var(--color-primary);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    margin: auto
+}
+
+.card .card-body {
+    padding: 2rem 1rem ;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: var(--color-primary);
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 450px;
+}
+
+form span {
+    color: #fff;
+}
+
+form span a {
+    text-decoration: none;
+    color: #999;
+    font-weight: 500;
+}
+
+form button {
+    height: 48px;
+    border: 0;
+    background: var(--color-secondary);
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-top: 24px;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.form-row {
+    width: 100%;
+    position: relative;
+}
+
+.form-row + .form-row {
+    margin-top: 16px;
+}
+
+.form-control input {
+    height: 48px;
+    width: 100%;
+    border: 2px solid #fff;
+    padding: 1rem;
+    color: var(--color-secondary);
+}  
+
+
+.form-control input::placeholder {
+    color: var(--color-secondary-light);
+}
+
+.form-control input:required::-webkit-input-placeholder::before {
+    content: '*';
+}
