@@ -14,3 +14,4 @@ class SubscriptionForm(forms.Form):
     email.widget.attrs.update({'placeholder': email.label})
     celphone.widget.attrs.update({'placeholder': celphone.label})
     phone.widget.attrs.update({'placeholder': phone.label})
+    accept.widget.attrs.update({'required': True})

@@ -1,7 +1,10 @@
-from django.http.response import HttpResponse, HttpResponseRedirect
+from datetime import date
+from landinator.core.services import save_subscription
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, resolve_url as r
 from landinator.core.forms import SubscriptionForm
 from landinator.landing_pages.models import LandingPage
+from landinator.core.models import Subscription
 
 
 def home(request, slug=''):
@@ -12,18 +15,26 @@ def home(request, slug=''):
 
 
 def empty_form(request, landing):
-    title = landing.title
-    return render(request, 'index.html', {'title': title, 'form': SubscriptionForm()})
+    context = {'landing_page': landing,
+               'form': SubscriptionForm(), 'enabled': _enabled(landing)}
+    return render(request, 'index.html', context)
 
 
 def create(request, landing):
-    title = landing.title
     form = SubscriptionForm(request.POST)
     if not form.is_valid():
-        return render(request, 'index.html', {'title': title, 'form': form})
+        context = {'landing_page': landing,
+                   'form': form, 'enabled': _enabled(landing)}
+        return render(request, 'index.html', context)
 
-    return HttpResponseRedirect('sucesso/')
+    save_subscription(form, landing)
+
+    return HttpResponseRedirect(r('success'))
 
 
 def success(request):
     return render(request, 'subscription/success.html')
+
+
+def _enabled(landing):
+    return landing.end_date >= date.today()

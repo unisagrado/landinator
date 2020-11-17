@@ -8,6 +8,13 @@ class Subscription(models.Model):
     celphone = models.CharField('celular', max_length=20)
     phone = models.CharField('telefone', max_length=20, blank=True, null=True)
     created_at = models.DateTimeField('criado em', auto_now_add=True)
+    accept = models.BooleanField('aceite?', default=False)
+    landing_page = models.ForeignKey(
+        'landing_pages.LandingPage', verbose_name='formulário', on_delete=models.CASCADE)
+
+    class Meta():
+        verbose_name = 'inscrição'
+        verbose_name_plural = 'inscrições'
 
     def __str__(self):
         return ' '.join([self.first_name, self.last_name])

@@ -2,6 +2,7 @@
     --color-primary: rgb(174, 20, 15);
     --color-secondary: rgb(42,43,47);
     --color-secondary-light: rgba(85,85,85, 0.8);
+    --color-error: #e57373;
 
     font-size: 60%;
 }
@@ -34,16 +35,16 @@ body {
     align-items: center;
 }
 
-.container h1 {
+.content {
+    padding: 1rem;
+}
+
+.content h1 {
     color: #fff;
     font-size: 3.2rem;
     text-transform: uppercase;
     margin: 2.4rem auto;
-}
-
-
-.content {
-    padding: 1rem;
+    text-align: center;
 }
 
 .card {
@@ -78,6 +79,24 @@ body {
     background: var(--color-primary);
 }
 
+.card .card-body p {
+    color: #fff;
+    line-height: 3.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.card .card-body h3{
+    font-size: 3.2rem;
+    color: #fff;
+    margin-bottom: 2.4rem;
+    
+}
+
+.card .card-body p a{
+    color: #bbb;
+    text-decoration: none;
+}
+
 
 form {
     display: flex;
@@ -108,6 +127,10 @@ form button {
     font-size: 2rem;
 }
 
+form button:disabled {
+    background: var(--color-secondary-light);
+}
+
 .form-row {
     width: 100%;
     position: relative;
@@ -125,11 +148,17 @@ form button {
     color: var(--color-secondary);
 }  
 
-
 .form-control input::placeholder {
     color: var(--color-secondary-light);
 }
 
-.form-control input:required::-webkit-input-placeholder::before {
-    content: '*';
+.errorlist {
+    list-style: none;
+    background-color: var(--color-error);
+    color: #fff;
+    padding: 0.4rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: center;
+    font-weight: bold;
 }

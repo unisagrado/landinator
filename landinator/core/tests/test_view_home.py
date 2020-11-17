@@ -25,7 +25,7 @@ class HomeViewGet(TestCase):
     def test_html(self):
         """HTML must contain input tags"""
         content = (
-            ('<h1>Aulão do ENEM</h1>', 1),
+            ('Aulão do ENEM', 2),
             ('<form', 1),
             ('<input', 7),
             ('type="text"', 4),
@@ -86,6 +86,21 @@ class HomeViewPostInvalid(TestCase):
 
 
 class HomeViewLandingNotFound(TestCase):
-    def test_not_foud(self):
+    def test_not_found(self):
         resp = self.client.get(r('home', 'slug'))
         self.assertEqual(404, resp.status_code)
+
+
+class HomeViewFormExpired(TestCase):
+    def setUp(self):
+        landing = LandingPage.objects.create(
+            title='Aulão do ENEM',
+            slug='aulao-do-enem',
+            end_date=date.today() - timedelta(days=1),
+        )
+        self.resp = self.client.get(r('home', landing.slug))
+
+    def test_submit_disabled(self):
+        """Submit button must be disabled"""
+        expected = '<button type="submit" disabled'
+        self.assertContains(self.resp, expected)
