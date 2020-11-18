@@ -8,7 +8,8 @@ class ExportCsvMixin:
         meta = self.model._meta
         filename = datetime.now().timestamp()
 
-        response = HttpResponse(content_type='text/csv;charset=windows-1252')
+        response = HttpResponse(
+            content_type='application/csv;charset=windows-1252')
         response['Content-Disposition'] = 'attachment; filename={}.csv'.format(
             filename)
         writer = csv.writer(response, delimiter=";", dialect=csv.excel)
