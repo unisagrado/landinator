@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Inscrição realizada com sucesso!</h1>    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title%}
+    Sucesso!
+{% endblock title%}
+
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Sucesso!</h1>
+    </div>
+    <div class="card-body"> 
+       <h3>Inscrição realizada com sucesso!</h3>
+    </div>
+</div>
+{% endblock content %}

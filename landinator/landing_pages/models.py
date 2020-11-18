@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
 from django_extensions.db.fields import AutoSlugField
+from django.utils import timezone
 
 
 class LandingPage(models.Model):
@@ -16,3 +17,9 @@ class LandingPage(models.Model):
 
     def get_absolute_url(self):
         return r('home', slug=self.slug)
+
+    def enabled(self):
+        total_subscriptions = self.subscription_set.count()
+        has_slots = self.limit_subscriptions == 0 or total_subscriptions < self.limit_subscriptions
+        subscriptions_open = self.end_date >= timezone.now().date()
+        return has_slots and subscriptions_open

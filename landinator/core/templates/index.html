@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title%}
-    {{ landing_page.title }}
+    {{ landing.title }}
 {% endblock title%}
 
 {% block content %}
-<h1>{{ landing_page.title }}</h1>
+<h1>{{ landing.title }}</h1>
 <div class="card">
     <div class="card-header">
         <h1 class="card-title">Inscreva-se</h1>
@@ -14,7 +14,7 @@
         <p>
             * Campos obrigatórios
         </p>
-        <form action="{% url 'home' slug=landing_page.slug %}" novalidate method="POST">
+        <form action="{% url 'home' slug=landing.slug %}" novalidate method="POST">
             {% csrf_token %}
             <div class="form-row form-control">
                 {{ form.first_name }}
@@ -44,8 +44,8 @@
                 </span>
                 {{ form.accept.errors }}
             </div>
-            <button type="submit" {% if not enabled %}disabled{%endif%}>
-                {% if not enabled %}
+            <button type="submit" {% if not landing.enabled %}disabled{%endif%}>
+                {% if not landing.enabled %}
                     Inscrições encerradas
                 {% else %}
                     Enviar

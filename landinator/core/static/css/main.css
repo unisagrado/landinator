@@ -1,6 +1,7 @@
 :root {
     --color-primary: rgb(174, 20, 15);
     --color-secondary: rgb(42,43,47);
+    --color-secondary-hover: rgba(52,53,57);
     --color-secondary-light: rgba(85,85,85, 0.8);
     --color-error: #e57373;
 
@@ -125,6 +126,13 @@ form button {
     margin-top: 24px;
     font-weight: 300;
     font-size: 2rem;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+form button:hover {
+    background: var(--color-secondary-hover);
 }
 
 form button:disabled {

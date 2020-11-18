@@ -16,11 +16,11 @@ RUN mkdir landinator
 
 WORKDIR landinator
 
-COPY requirements.txt manage.py ./
+COPY requirements.txt requirements-prod.txt manage.py ./
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirements-prod.txt
 
-COPY ./chapel ./chapel
+COPY ./landinator ./landinator
 COPY ./.docker/entrypoint.sh /bin/entrypoint.sh
 
 RUN python manage.py test

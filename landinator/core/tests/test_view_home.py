@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from django.utils import timezone
 from django.test import TestCase
 from django.shortcuts import resolve_url as r
 from landinator.core.forms import SubscriptionForm
@@ -10,7 +10,7 @@ class HomeViewGet(TestCase):
         landing = LandingPage.objects.create(
             title='Aulão do ENEM',
             slug='aulao-do-enem',
-            end_date=date.today() + timedelta(days=1)
+            end_date=timezone.now().date() + timezone.timedelta(days=1)
         )
         self.resp = self.client.get(r('home', landing.slug))
 
@@ -49,7 +49,7 @@ class HomeViewPostValid(TestCase):
         landing = LandingPage.objects.create(
             title='Aulão do ENEM',
             slug='aulao-do-enem',
-            end_date=date.today() + timedelta(days=1)
+            end_date=timezone.now().date() + timezone.timedelta(days=1)
         )
         data = dict(first_name='Vinicius', last_name='Boscoa', email='valid@email.com',
                     celphone='(99) 99999-9999', accept=True)
@@ -65,7 +65,7 @@ class HomeViewPostInvalid(TestCase):
         landing = LandingPage.objects.create(
             title='Aulão do ENEM',
             slug='aulao-do-enem',
-            end_date=date.today() + timedelta(days=1)
+            end_date=timezone.now().date() + timezone.timedelta(days=1)
         )
         self.resp = self.client.post(r('home', landing.slug), {})
 
@@ -96,7 +96,7 @@ class HomeViewFormExpired(TestCase):
         landing = LandingPage.objects.create(
             title='Aulão do ENEM',
             slug='aulao-do-enem',
-            end_date=date.today() - timedelta(days=1),
+            end_date=timezone.now().date() - timezone.timedelta(days=1),
         )
         self.resp = self.client.get(r('home', landing.slug))
 
