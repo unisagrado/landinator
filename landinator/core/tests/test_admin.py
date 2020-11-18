@@ -51,4 +51,4 @@ class ExportAsCsvTest(TestCase):
         self.assertEqual(200, self.resp.status_code)
 
     def test_content_type(self):
-        self.assertIn('text/csv', self.resp['Content-Type'])
+        self.assertIn('/csv', self.resp['Content-Type'])
