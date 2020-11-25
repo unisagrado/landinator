@@ -52,3 +52,33 @@ class ExportAsCsvTest(TestCase):
 
     def test_content_type(self):
         self.assertIn('/csv', self.resp['Content-Type'])
+
+    def test_content_disposition(self):
+        self.assertIn('.csv', self.resp['Content-Disposition'])
+
+
+class ExportXlsTest(TestCase):
+    def setUp(self):
+        landing_page = LandingPage.objects.create(
+            title='Aulão do ENEM',
+            slug='aulao-do-enem',
+            end_date=date.today() + timedelta(days=1)
+        )
+        Subscription.objects.create(first_name='Vinicius',
+                                    last_name='Boscoa',
+                                    email='valid@email.com',
+                                    celphone='(99) 99999-9999',
+                                    landing_page=landing_page)
+        model_admin = SubscriptionModelAdmin(Subscription, admin.site)
+        self.resp = model_admin.export_xlsx({}, Subscription.objects.all())
+
+    def test_response(self):
+        """Export as XLS method must return status code 200"""
+        self.assertEqual(200, self.resp.status_code)
+
+    def test_content_type(self):
+        self.assertIn(
+            '/vnd.openxmlformats-officedocument.spreadsheetml.sheet', self.resp['Content-Type'])
+
+    def test_content_disposition(self):
+        self.assertIn('.xlsx', self.resp['Content-Disposition'])
