@@ -20,7 +20,7 @@ def integrate_mailmarketing(subscription):
     if landing.should_integrate() and subscription.pk is not None and settings.LAHAR_TOKEN:
         try:
             client = LaharClient(settings.LAHAR_TOKEN,
-                                 event=settings.LAHAR_EVENT)
+                                 event=landing.slug)
 
             integration_data = dict(
                 email_contato=subscription.email,
