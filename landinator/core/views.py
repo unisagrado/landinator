@@ -25,7 +25,6 @@ def create(request, landing):
         return render(request, 'index.html', context)
 
     save_subscription(form.cleaned_data, landing)
-
     return HttpResponseRedirect(r('success'))
 
 

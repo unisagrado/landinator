@@ -33,6 +33,7 @@ class LandingPageModelTest(TestCase):
             title='Aulão do ENEM',
             slug='aulao-do-enem',
             end_date=date(2020, 11, 17),
+            tag='aulao_enem_2021',
         )
         qs = LandingPage.objects.all()
         expected = ['aulao-do-enem', 'aulao-do-enem-2']
@@ -46,6 +47,14 @@ class LandingPageModelTest(TestCase):
             end_date=timezone.now().date() - timezone.timedelta(days=1))
         self.assertFalse(page.enabled())
 
+    def test_should_not_integrate(self):
+        page = self.make_valid_page(tag=None)
+        self.assertFalse(page.should_integrate())
+
+    def test_should_integrate(self):
+        page = self.make_valid_page()
+        self.assertTrue(page.should_integrate())
+
     def test_disabled_subscriptions(self):
         page = self.make_valid_page(limit_subscriptions=1)
         Subscription.objects.create(first_name='Vinicius', last_name='Boscoa',
@@ -56,6 +65,7 @@ class LandingPageModelTest(TestCase):
     def make_valid_page(self, **kwargs):
         valid = dict(title='Aulão do ENEM',
                      slug='aulao-do-enem',
-                     end_date=timezone.now().date() + timezone.timedelta(days=1))
+                     end_date=timezone.now().date() + timezone.timedelta(days=1),
+                     tag='aulao_enem_2021')
         data = dict(valid, **kwargs)
         return LandingPage.objects.create(**data)

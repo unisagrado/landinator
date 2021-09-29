@@ -9,7 +9,8 @@ class LandingPageModelAdminTest(TestCase):
         self.landing = LandingPage.objects.create(
             title='Aulão do ENEM',
             slug='aulao-do-enem',
-            end_date=date.today() + timedelta(days=2)
+            end_date=date.today() + timedelta(days=2),
+            tag='aulao_enem_2021'
         )
         self.queryset = LandingPage.objects.all()
         self.model_admin = LandingPageModelAdmin(LandingPage, admin.site)

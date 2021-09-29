@@ -123,3 +123,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+
+LAHAR_TOKEN = config('LAHAR_TOKEN', default='api-token', cast=str)
+LAHAR_EVENT = config('LAHAR_EVENT', default='integration', cast=str)

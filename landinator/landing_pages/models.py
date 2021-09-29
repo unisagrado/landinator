@@ -10,6 +10,8 @@ class LandingPage(models.Model):
     end_date = models.DateField('vigente até')
     limit_subscriptions = models.IntegerField(
         'limite de inscrições', default=0)
+    tag = models.CharField(
+        'tag', default='', max_length=150, null=True, blank=True)
     created_at = models.DateTimeField('criado em', auto_now_add=True)
 
     def __str__(self):
@@ -17,6 +19,9 @@ class LandingPage(models.Model):
 
     def get_absolute_url(self):
         return r('home', slug=self.slug)
+
+    def should_integrate(self):
+        return bool(self.tag)
 
     def enabled(self):
         total_subscriptions = self.subscription_set.count()
