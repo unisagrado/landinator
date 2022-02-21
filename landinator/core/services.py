@@ -20,7 +20,7 @@ def integrate_mailmarketing(subscription):
     if landing.should_integrate() and subscription.pk is not None and settings.LAHAR_TOKEN:
         try:
             if subscription.landing_page.to == '1':
-                client = LaharClient(settings.LAHAR_GRADUATION_TOKEN, event=landing.slug)
+                client = LaharClient(settings.LAHAR_TOKEN, event=landing.slug)
 
             elif subscription.landing_page.to == '2':
                 client = LaharClient(settings.LAHAR_POSTGRADUATE_TOKEN, event=landing.slug)
