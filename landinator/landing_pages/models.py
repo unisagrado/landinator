@@ -8,6 +8,7 @@ class LandingPage(models.Model):
     title = models.CharField('título', max_length=150)
     slug = AutoSlugField('slug', populate_from='title')
     end_date = models.DateField('vigente até')
+    to = models.CharField('Para (1 - Graduação, 2 - Pós - Graduação)',max_length=10, default="1")
     limit_subscriptions = models.IntegerField(
         'limite de inscrições', default=0)
     tag = models.CharField(

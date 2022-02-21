@@ -125,3 +125,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 
 LAHAR_TOKEN = config('LAHAR_TOKEN', default='api-token', cast=str)
+
+LAHAR_GRADUATION_TOKEN = config('LAHAR_GRADUATION_TOKEN', default='api-token', cast=str)
+LAHAR_POSTGRADUATE_TOKEN = config('LAHAR_POSTGRADUATE_TOKEN', default='api-token', cast=str)
