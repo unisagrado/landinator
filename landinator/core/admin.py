@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 class SubscriptionModelAdmin(admin.ModelAdmin, ExportMixin):
     list_display = ('__str__', 'landing_page', 'email', 'celphone',
-                    'page_link', 'accept', 'created_at')
+                    'page_link', 'privacity_policy', 'send_offers', 'created_at')
     date_hierarchy = 'created_at'
     search_fields = ('landing_page__title',
                      'landing_page__slug', 'first_name', 'last_name')

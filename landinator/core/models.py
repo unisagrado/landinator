@@ -8,7 +8,8 @@ class Subscription(models.Model):
     celphone = models.CharField('celular', max_length=20)
     phone = models.CharField('telefone', max_length=20, blank=True, null=True)
     created_at = models.DateTimeField('criado em', auto_now_add=True)
-    accept = models.BooleanField('aceite?', default=False)
+    privacity_policy = models.BooleanField('aceita_política?', default=False)
+    send_offers = models.BooleanField('aceita_envio?', default=False)
     landing_page = models.ForeignKey(
         'landing_pages.LandingPage', verbose_name='formulário', on_delete=models.CASCADE)
 

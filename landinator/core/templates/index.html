@@ -37,12 +37,19 @@
                 {{ form.phone.errors }}
             </div>
             <div class="form-row">
-                {{ form.accept }}
+                {{ form.privacity_policy }}
                 <span>
                     Ao se cadastrar neste formulário, você concorda com a nossa 
                     <a href="https://unisagrado.edu.br/politica-de-privacidade">política de privacidade</a>
                 </span>
-                {{ form.accept.errors }}
+                {{ form.privacity_policy.errors }}
+            </div>
+            <div class="form-row">
+                {{ form.send_offers }}
+                <span>
+                    Autorizo o envio de ofertas de cursos e informações relevantes 
+                </span>
+                {{ form.send_offers.errors }}
             </div>
             <button type="submit" {% if not landing.enabled %}disabled{%endif%}>
                 {% if not landing.enabled %}
