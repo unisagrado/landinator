@@ -13,5 +13,6 @@ class SubscriptionFormTest(TestCase):
                     'email',
                     'celphone',
                     'phone',
-                    'accept']
+                    'privacity_policy',
+                    'send_offers']
         self.assertSequenceEqual(expected, list(self.form.fields))

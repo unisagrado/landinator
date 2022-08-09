@@ -15,7 +15,8 @@ class SubscriptionModelTest(TestCase):
             email='valid@email.com',
             celphone='(99) 99999-9999',
             phone='(88) 88888-8888',
-            accept=True,
+            privacity_policy=True,
+            send_offers=True,
             landing_page=landing_page
         )
         self.obj.save()

@@ -27,10 +27,10 @@ class HomeViewGet(TestCase):
         content = (
             ('Aulão do ENEM', 2),
             ('<form', 1),
-            ('<input', 7),
+            ('<input', 8),
             ('type="text"', 4),
             ('type="email"', 1),
-            ('type="checkbox"', 1),
+            ('type="checkbox"', 2),
             ('type="hidden"', 1),
             ('<button type="submit"', 1),
             ('<a href="https://unisagrado.edu.br/politica-de-privacidade">política de privacidade</a>', 1)

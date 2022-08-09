@@ -59,7 +59,7 @@ class LandingPageModelTest(TestCase):
         page = self.make_valid_page(limit_subscriptions=1)
         Subscription.objects.create(first_name='Vinicius', last_name='Boscoa',
                                     email='valid@email.com', celphone='99-99999-9999',
-                                    accept=True, landing_page=page)
+                                    privacity_policy=True, send_offers=True, landing_page=page)
         self.assertFalse(page.enabled())
 
     def make_valid_page(self, **kwargs):
