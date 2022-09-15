@@ -19,7 +19,7 @@ python -m venv .venv
 pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 python manage.py test
-ALLOWED_HOSTS = ['localhost', '0.0.0.0'] //comentar o antigo ALLOWED_HOSTS e deixar esse apenas no local, reverte esta alteração quando for enviar para o github
+ALLOWED_HOSTS = ['localhost', '0.0.0.0'] //comentar o antigo ALLOWED_HOSTS e deixar esse apenas no local, reverta esta alteração quando for enviar para o github
 python manage.py makemigrations
 python manage.py migrate
 ```

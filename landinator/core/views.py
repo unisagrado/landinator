@@ -25,8 +25,13 @@ def create(request, landing):
         return render(request, 'index.html', context)
 
     save_subscription(form.cleaned_data, landing)
-    return HttpResponseRedirect(r('success'))
-
-
-def success(request):
     return render(request, 'subscription/success.html')
+
+#def return_form(request, slug):
+    #landing = get_object_or_404(LandingPage, slug=slug)
+    #context = {
+     #   'landing': landing
+    #}
+    #return render(request, 'index.html', context)
+
+
