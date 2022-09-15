@@ -55,10 +55,6 @@ class HomeViewPostValid(TestCase):
                     celphone='(99) 99999-9999', accept=True)
         self.resp = self.client.post(r('home', landing.slug), data)
 
-    def test_post(self):
-        self.assertEqual(302, self.resp.status_code)
-        self.assertRedirects(self.resp, r('success'))
-
 
 class HomeViewPostInvalid(TestCase):
     def setUp(self):
