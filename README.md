@@ -33,13 +33,14 @@ python -m virtualenv .venv
 .venv\Scripts\activate 
 
 # WSL/Ubunto
-source .venv/bin/activate (Ubuntu/WSL)
+source .venv/bin/activate
 -> If Permission denied: `chmod +x .venv/bin/activate`
 
 # Inside the (.evenv)
 pip install -r requirements-dev.txt
 
 cp contrib/env-sample .env
+cp .env-example .env
 python manage.py test
 
 ALLOWED_HOSTS = ['localhost', '0.0.0.0'] //comentar o antigo ALLOWED_HOSTS e deixar esse apenas no local, reverta esta alteração quando for enviar para o github
