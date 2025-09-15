@@ -8,7 +8,7 @@ ENV SECRET_KEY=${A_SECRET_KEY}}
 
 # install mysqlclient
 RUN apt-get update \ 
-    && apt-get install -y python3-dev default-libmysqlclient-dev build-essential
+    && apt-get install -y python3-dev libmysqlclient-dev build-essential
 
 RUN pip install --upgrade pip
 
