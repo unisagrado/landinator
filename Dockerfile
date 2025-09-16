@@ -1,20 +1,21 @@
-FROM python:3.9-slim-buster
+FROM python:3.9-slim-bookworm
 
 ARG A_SECRET_KEY=super-secret-key-of-the-app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV PORT 8000
-ENV SECRET_KEY=${A_SECRET_KEY}}
+ENV SECRET_KEY=${A_SECRET_KEY}
 
 # install mysqlclient
 RUN apt-get update \ 
-    && apt-get install -y python3-dev libmysqlclient-dev build-essential
+    && apt-get install -y python3-dev default-libmysqlclient-dev build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 
 RUN mkdir landinator
 
-WORKDIR landinator
+WORKDIR /landinator
 
 COPY requirements.txt requirements-prod.txt manage.py ./
 
